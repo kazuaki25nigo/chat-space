@@ -18,20 +18,19 @@
 |name|string|index: true, null: false|
 ### Association
 - has_many :messages
-- has_many :groups
 
 ## groups_table
 |Column|Type|Options|
 |------|----|-------|
-|name|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
-- has_many :user
+- belongs_to :user
 
 ## massages_table
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|group_id|references|null: false, foreign_key: true|
+|user_id|integer|---|
+|group_id|integer|---|
 ### Association
 - belongs_to :group
 - belongs_to :user
