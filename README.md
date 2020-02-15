@@ -19,12 +19,12 @@
 ### Association
 has_many :messages
 has_many :users_groups
-has_many :users, through: :user_groups
+has_many :groups, through: :user_groups
 
 ## groups
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false,|
+|name|string|null: false|
 ### Association
 has_many :users, through: :user_groups
 has_many :massages
@@ -36,7 +36,7 @@ has_many :users_groups
 |user_id|references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key: true|
 |image|string|------|
-|body|text|null: false|
+|body|text|---------|
 ### Association
 - belongs_to :group
 - belongs_to :user
