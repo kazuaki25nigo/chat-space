@@ -1,24 +1,45 @@
-# README
+<!-- ・ユーザー管理機能
+   users_table
+・チャットグループ管理機能
+   groups_table
+・チャットメッセージの保存機能
+   massages_table 
+・中間table
+   users_groups_table
+  -->
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## users_table
+|Column|Type|Options|
+|------|----|-------|
+|id----|integer|----|
+|email|string|------|
+|password|string|---|
+|name|string|index: true, null: false|
+### Association
+- has_many :messages
 
-* Ruby version
+## groups_table
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
 
-* System dependencies
+## massages_table
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|---|
+|group_id|integer|---|
+### Association
+- belongs_to :group
+- belongs_to :user
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## users_groups_table(中間table)
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :group
+- belongs_to :user
