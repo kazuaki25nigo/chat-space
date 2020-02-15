@@ -9,7 +9,7 @@
   -->
 
 
-## users_table
+## users
 |Column|Type|Options|
 |------|----|-------|
 |id----|integer|----|
@@ -21,16 +21,16 @@ has_many :messages
 has_many :users_groups_table
 has_many :users, through: :user_groups
 
-## groups_table
+## groups
 |Column|Type|Options|
 |------|----|-------|
 |name|references|null: false, foreign_key: true|
 ### Association
 has_many :users
 has_many :massages
-has_many :users_groups_table
+has_many :users_groups
 
-## massages_table
+## massages
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -40,7 +40,7 @@ has_many :users_groups_table
 - belongs_to :group
 - belongs_to :user
 
-## users_groups_table(中間table)
+## users_groups(中間table)
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
