@@ -1,0 +1,29 @@
+.main-ber
+  .main-ber__chat-main__group-info
+    .main-ber__chat-main__group-info__chat-header-left-box
+      .main-ber__chat-main__group-info__chat-header-left-box__chat-header-name test
+      %p.main-ber__chat-main__group-info__chat-header-left-box__chat-header-member member : Honma
+    .main-ber__chat-main__group-info__chat-header-edit-btn
+      = link_to "edit", "#", class: "btn"
+      
+  .main-ber__chat-main__message-list
+    .main-ber__chat-main__message-list__message-box
+      .main-ber__chat-main__message-list__message-box__message nigo
+      .main-ber__chat-main__message-list__message-box__message-data 2020/2/22(sat)12:00:00
+    .main-ber__chat-main__message-list__message-sentence お腹いっぱい
+
+    .main-ber__chat-main__message-list__message-box
+      .main-ber__chat-main__message-list__message-box__message nigo
+      .main-ber__chat-main__message-list__message-box__message-data 2020/2/21(fri)12:12:12
+    .main-ber__chat-main__message-list__message-sentence 美味しそう
+
+  .main-ber__chat-main__message-form
+    .main-ber__chat-main__message-form__box
+      .main-ber__chat-main__message-form__box__text-box
+        %input.input-text-box{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+        %label.image-box
+          = icon('far', 'image', class: 'icon_image')
+          %input{type: "file",class: "image-box__icon"}
+
+      .main-ber__chat-main__message-form__box__send-button SEND
+

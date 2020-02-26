@@ -1,0 +1,21 @@
+-# ＜サイドバー＞
+.side-ber
+  .side-ber__user-name
+    .side-ber__user-name__side-box__user-name
+      %p.side-ber__user-name__side-box__user-name__name HONMA
+      %ul.menu
+        %li.edit
+          = link_to "#" do
+            = icon('far', 'edit', class: 'icon_edit')
+        %li.config
+          =link_to "#" do
+            = icon('fas', 'cog', class: 'icon_cog')
+
+  .side-ber__group-list
+    .side-ber__group-list__group 
+      %p.side-ber__group-list__group__group-name family
+      %p.side-ber__group-list__group__group-message まだメッセージはありません
+
+    .side-ber__group-list__group
+      %p.side-ber__group-list__group__group-name friend
+      %p.side-ber__group-list__group__group-message まだメッセージはありません
