@@ -2,20 +2,28 @@
 .side-ber
   .side-ber__user-name
     .side-ber__user-name__side-box__user-name
-      %p.side-ber__user-name__side-box__user-name__name HONMA
+      %p.side-ber__user-name__side-box__user-name__name 
+        = current_user.name
       %ul.menu
         %li.edit
-          = link_to "#" do
+          = link_to new_group_path do
             = icon('far', 'edit', class: 'icon_edit')
         %li.config
-          =link_to "#" do
+          =link_to edit_user_path(current_user) do
             = icon('fas', 'cog', class: 'icon_cog')
 
   .side-ber__group-list
-    .side-ber__group-list__group 
-      %p.side-ber__group-list__group__group-name family
-      %p.side-ber__group-list__group__group-message まだメッセージはありません
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
 
-    .side-ber__group-list__group
-      %p.side-ber__group-list__group__group-name friend
-      %p.side-ber__group-list__group__group-message まだメッセージはありません
+        -# .side-ber__group-list__group__group-name 
+        -# .side-ber__group-list__group__group-message まだメッセージはありません
+
+    -# .side-ber__group-list__group
+    -#   %p.side-ber__group-list__group__group-name friend
+    -#   %p.side-ber__group-list__group__group-message まだメッセージはありません

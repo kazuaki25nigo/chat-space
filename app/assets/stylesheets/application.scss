@@ -1,7 +1,11 @@
 @import "reset";
+@import "config/colors";
 @import "modules/messages";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "modules/user";
+@import "modules/flash";
+@import "modules/group";
 
 .waper {
   display: flex;
@@ -43,14 +47,18 @@
     height: calc(100% - 100px);
     background-color: #2f3e51;
     padding: 20px 20px 0;
-    &__group {
+    .group {
       margin-bottom: 40px;
-      &__group-name {
+      .group__name {
         font-size: 15px;
         margin-bottom: 5px;
       }
-      &__group-message {
+      .group__message {
         font-size: 11px;
+      }
+      a {
+        color: #FFF;
+        text-decoration: none;
       }
     }
   }
