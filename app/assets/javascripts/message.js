@@ -1,9 +1,8 @@
-	
 $(function(){ 
   function buildHTML(message){
    if ( message.image ) {
      var html =
-      `<div class="message">
+      `<div class="message" data-message-id= ${message.id}>
          <div class="upper-message">
            <div class="upper-message__user-name">
              ${message.user_name}
@@ -22,7 +21,7 @@ $(function(){
      return html;
    } else {
      var html =
-      `<div class="message">
+      `<div class="message"  data-message-id= ${message.id}>
          <div class="upper-message">
            <div class="upper-message__user-name">
              ${message.user_name}
@@ -41,9 +40,8 @@ $(function(){
    };
  }
   
-  
+  // インクリメンタルサーチの記述。
   $('#new_message').on('submit', function(e){
-    // console.logを用いてイベント発火しているか確認
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
@@ -65,7 +63,34 @@ $(function(){
       alert('エラーが発生したためメッセージは送信できませんでした。');
     })
     .always(function(data){
-      $('.form__submit').prop('disabled', false);　//ここで解除している
+      $('.form__submit').prop('disabled', false);
     })
   })
+  
+// 自動更新はここから。 
+  var reloadMessages = function () {
+    var last_message_id = $('.message:last').data("message-id");
+      $.ajax({ 
+        url: "api/messages", 
+        type: 'get', 
+        dataType: 'json', 
+        data: {last_id: last_message_id} 
+      })
+      .done(function (messages) { 
+        if (messages.length !== 0) {
+        var insertHTML = '';
+        messages.forEach(function (message) {
+          insertHTML += buildHTML(message); 
+        })
+        $('.messages').append(insertHTML);
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      }
+    })
+      .fail(function () {
+        alert('自動更新に失敗しました');
+      });
+    };
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  };
 });

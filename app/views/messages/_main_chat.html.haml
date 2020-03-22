@@ -3,7 +3,8 @@
     .main-ber__chat-main__group-info__chat-header-left-box
       .main-ber__chat-main__group-info__chat-header-left-box__chat-header-name 
         = @group.name
-      .main-ber__chat-main__group-info__chat-header-left-box__chat-header-member 
+      .main-ber__chat-main__group-info__chat-header-left-box__chat-header-member
+        Member: 
         - @group.group_users.each do |group_user|
           = group_user.user.name
     .main-ber__chat-main__group-info__chat-header-edit-btn
