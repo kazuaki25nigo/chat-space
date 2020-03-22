@@ -68,13 +68,11 @@
   height: 100vh;
   float: right;
   display: block;
-  // overflow: scroll;
   &__chat-main__group-info {
     height: 100px;
     background-color: #fff;
     padding: 0 40px;
     display: flex;
-    // overflow: scroll;
     border-bottom: solid 1px #eeeeee;
     &__chat-header-left-box {
       margin-top: 35px;
@@ -147,7 +145,6 @@
       width: 100%;
       display: flex;
       &__text-box {
-        // position: relative;
         width: 100%;
         .form{
           .new_message{
