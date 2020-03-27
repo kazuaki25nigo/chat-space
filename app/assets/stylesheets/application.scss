@@ -99,6 +99,7 @@
 
       .btn {
         text-decoration: none;
+        color: #38aef0;
       }
     }
   }
@@ -112,6 +113,7 @@
       display: none;
     }
     .message{
+      padding-bottom: 40px;
       .upper-message {
         display: flex;
         margin-bottom: 12px;
@@ -127,7 +129,7 @@
         }
       }  
       .lower-message {
-        margin-bottom: 46px;
+        margin-bottom: 10px;
         font-size: 14px;
         color: #343434;
       }
